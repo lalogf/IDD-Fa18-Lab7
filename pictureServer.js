@@ -70,7 +70,7 @@ var opts = { //These Options define how the webcam is operated.
     callbackReturn: "location",
     //Logging
     verbose: false
-};
+  };
 var Webcam = NodeWebcam.create( opts ); //starting up the webcam
 //----------------------------------------------------------------------------//
 
@@ -100,8 +100,17 @@ io.on('connect', function(socket) {
 
   // if you get the 'ledON' msg, send an 'H' to the Arduino
   socket.on('ledON', function() {
-    console.log('ledON');
-    serial.write('H');
+    // console.log('ledON');
+    // serial.write('H');
+    var imageName = new Date().toString().replace(/[&\/\\#,+()$~%.'":*?<>{}\s-]/g, '');
+
+    console.log('making a making a picture at'+ imageName); // Second, the name is logged to the console.
+
+    //Third, the picture is  taken and saved to the `public/`` folder
+    NodeWebcam.capture('public/'+imageName, opts, function( err, data ) {
+    io.emit('newPicture',(imageName+'.jpg')); ///Lastly, the new name is send to the client web browser.
+    /// The browser will take this new name and load the picture from the public folder.
+  });
   });
 
   // if you get the 'ledOFF' msg, send an 'L' to the Arduino
