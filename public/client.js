@@ -15,9 +15,9 @@ Usage: This file is called automatically when the webpage is served.
 var socket = io();
 
 // send out LedOn message over socket
-// function ledON() {
-//   socket.emit('ledON');
-// }
+function ledON() {
+  socket.emit('ledON');
+}
 
 // send out ledOFF message over socket
 function ledOFF() {
@@ -25,7 +25,7 @@ function ledOFF() {
 }
 
 //-- Addition: Forward the `Take a picture` button-press to the webserver.
-function ledON(){
+function takePicture(){
   socket.emit('takePicture');
 }
 
@@ -42,7 +42,8 @@ socket.on('server-msg', function(msg) {
   switch (msg) {
     case "light":
       document.body.style.backgroundColor = "white";
-      console.log("white")
+      takePicture();
+      console.log("white");
       break;
     case "dark":
       document.body.style.backgroundColor = "black";
