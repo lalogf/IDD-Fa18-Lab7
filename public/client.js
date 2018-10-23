@@ -47,13 +47,13 @@ socket.on('server-msg', function(msg) {
   switch (msg) {
     case "light":
       document.body.style.backgroundColor = "white";
-      document.getElementById("title") = "black";
+      document.getElementById("title").style.color = "black";
       takePicture();
       console.log("white");
       break;
     case "dark":
       document.body.style.backgroundColor = "black";
-      document.getElementById("title") = "white";
+      document.getElementById("title").style.color = "white";
       console.log("black");
       break;
     default:
