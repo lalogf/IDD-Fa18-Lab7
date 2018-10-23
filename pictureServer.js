@@ -102,7 +102,6 @@ io.on('connect', function(socket) {
   socket.on('ledON', function() {
     console.log('ledON');
     serial.write('H');
-    
   });
 
   // if you get the 'ledOFF' msg, send an 'L' to the Arduino
