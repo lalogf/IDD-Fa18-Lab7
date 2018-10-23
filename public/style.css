@@ -1,0 +1,15 @@
+.pictureContainer2{
+ 	filter:sepia(100%)
+}
+.pictureContainer3{
+ 	filter:hue-rotate(90deg);
+}
+.pictureContainer4{
+	filter:drop-shadow(8px 8px 10px gray)
+}
+.pictureContainer5{
+	filter:contrast(200%);
+}
+.pictureContainer6{
+	filter:invert(100%);
+}

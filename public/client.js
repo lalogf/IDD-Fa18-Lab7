@@ -35,6 +35,9 @@ socket.on('newPicture', function(msg) {
   document.getElementById('pictureContainer').src=msg;
   document.getElementById('pictureContainer2').src=msg;
   document.getElementById('pictureContainer3').src=msg;
+  document.getElementById('pictureContainer4').src=msg;
+  document.getElementById('pictureContainer5').src=msg;
+  document.getElementById('pictureContainer6').src=msg;
 });
 // read the data from the message that the server sent and change the
 // background of the webpage based on the data in the message
